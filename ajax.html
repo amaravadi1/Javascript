@@ -1,0 +1,208 @@
+<html>
+<head>
+<title>AJAX in java web application using jQuery</title>
+<script src="jquery-3.2.1.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="ajax.js"></script>
+</head>
+<body>
+<!-- $.ajax({
+  method: "POST",
+  url: "someResource",
+  data: { name: "John", location: "Boston" }
+})
+  .done(function( msg ) {
+    alert( "Data Saved: " + msg );
+  }); -->
+<form>
+<fieldset>
+
+	<legend>AJAX implementation in HTML and Servlet using JQuery</legend>
+	<br /> Enter your Name: <input type="text" id="userName" />
+	
+	Select product category:- <select id='emp' name='empSelect'>
+    <option value='Mac'>id001</option>
+    <option value='Anish'>id002</option>
+    <option value='Viky'>id003</option>
+</select>
+
+
+</fieldset>
+<br /> <br />
+<fieldset>
+
+	<legend>Response from jQuery Ajax Request on Blur event</legend>
+	<br />
+	<div id="ajaxResponse">
+	 <select class="form-control" id="op1">
+                 <option selected="selected">Select</option>
+     </select>
+	
+	</div>
+	
+</fieldset>
+</form>
+<script type="text/javascript">
+$('#userName').blur(function(event) {
+	
+	var name = $('#userName').val();
+     
+	
+	$.post('AjaxServlet', {
+		userName : name
+	}, function(jsonRes) {
+		
+		
+		$('#ajaxResponse').text(jsonRes);
+	});
+});
+
+
+
+</script>
+</body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Assignment 3</title>
+
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script type="text/javascript"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script
+            src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body onload="loading()">
+<div class="container">
+    <div class="panel panel-primary">
+        <div class="panel panel-heading">Assignment 3</div>
+        <div class="panel panel-body">
+            1st
+           create a html page in which you need to have javascript code and a button and textbox on  clicking
+           button a alert box should be shown where factorial of a number given in the textbox will be seen?
+           e.g&#45;&#45; factorial of 4 equal to 4*3*2*1 so the answer is 24.
+
+
+            <div class="col-md-6 col-md-offset-3">
+                <div class="panel panel-primary">
+                    <div class="panel panel-heading">Factorial of number</div>
+                    <div class="panel panel-body">
+
+
+                        <div class="form-group">
+                            <label for="enter_num">Enter Number</label>
+                            <input type="text" id="enter_num" placeholder="Enter Number">
+                        </div>
+
+
+                        <div class="form-group">
+                            <button type="button" onclick="factorial_check()">Factorial</button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+                2nd
+            create a html page in which we need to have a text box user will provide a word in that and there will
+            be a button on clicking that a div shuld show the name in reverse order? Use Jquery!
+
+                <div class="panel panel-primary">
+                    <div class="panel panel-heading">Reverse String using JQuery</div>
+                    <div class="panel panel-body">
+
+                        <div class="form-group">
+                            <label for="enter_word">Enter Word</label>
+                            <input type="text" id="enter_word" placeholder="Enter Word">
+
+                        </div>
+
+
+                        <div class="form-group" id="print_str">
+                            <input type="button" id="reverse_string" value="ReverseString">
+                        </div>
+
+
+                    </div>
+                </div>
+
+            <hr>
+
+
+            <div class="panel panel-primary">
+                <div class="panel panel-heading">Email Validation</div>
+                <div class="panel panel-body">
+                    <div class="form-group" >
+                    <label for="email">Email ID</label>
+                    <input type="text" id="email" placeholder="Enter email id" onblur="validate_email()">
+                     <p id="error_email" style="color:red; font-size: 12px;"></p>
+                </div>
+
+
+
+                </div>
+            </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+
+
+    $(document).ready(function () {
+        $("#reverse_string").click(function () {
+
+            var str = $('#enter_word').val();
+            alert(str.split(""));
+            var arr = str.split("");
+            var l = arr.length;
+
+            var rev_str = "";
+
+            for (var i = l - 1; i >= 0; i--) {
+                rev_str = rev_str + arr[i];
+
+            }
+
+            $('#print_str').append(rev_str);
+        });
+        
+
+
+    });
+
+
+    function factorial_check() {
+        var a = document.getElementById("enter_num").value;
+        var f = 1;
+        for (var i = 1; i <= a; i++) {
+            f = f * i;
+        }
+        alert('Factorial of ' + a + 'is' + f);
+
+    }
+    function validate_email() {
+        var emailid = document.getElementById("email").value;
+        var regex = /^([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)@([0-9a-zA-Z]([-_\\.]*[0-9a-zA-Z]+)*)[\\.]([a-zA-Z]{2,9})$/;
+
+        if (!regex.test(emailid)) {
+
+            document.getElementById("error_email").innerHTML = 'Enter valid emailId!!';
+            event.preventDefault();
+            return false;
+
+        }
+
+
+    }
+
+
+</script>
+
+
+</body>
+</html> -->

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link
+	href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css"
+	rel="stylesheet">
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+<!-- Javascript -->
+<script>
+         $(function() {
+            $( "#txt3Date" ).datepicker();
+            
+         });
+      </script>
+
+
+<title>Insert title here</title>
+</head>
+<body>
+	<div class="container">
+		<div class="panel panel-default">
+			<div class="panel-heading">JavaScript Dom Example</div>
+			<div class="panel-body">
+				<div class="panel panel-default">
+					<div class="panel-heading">DOM Manipulation Page</div>
+					<div class="panel-body">
+						<h1>DOM Manipulation,String Handling ,Date Handling</h1>
+						<hr>
+						<form id="myForm" onsubmit="submission(event)">
+							<div class="row">
+								<div id="newDiv1" class="col-md-4">
+									<label for="name">User Name:</label> <input name="txt1"
+										type="text" id="name">
+										
+								</div>
+								<div class="col-md-4">
+									<label for="pass">Password :</label> <input name="txt2"
+										type="text" id="pass">
+										<div id="passValidate"></div>
+								</div>
+
+								<div id="myDIV" class="col-md-4">
+									<button type="button" id="domBtn" class="btn btn-default">Dom</button>
+									<button type="button" id="cssBtn" onclick="cssFunction()" class="btn btn-default">Css</button>
+									
+									<button type="button" id="strBtn" class="btn btn-default"
+										onclick="strFunction()">String Manipulation</button>
+									<button id="backPage" type="button" class="btn btn-default"
+										onclick="bomPage()">Back</button>
+										
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="panel panel-default">
+			<div class="panel-heading">JavaScript Date Example</div>
+			<div class="panel-body">
+				<div class="row">
+					<div class="col-md-6">
+						<label for="pass">Date :</label> <input name="txt3Date"
+							type="text" id="txt3Date">
+					</div>
+					<div class="col-md-6">
+						<button type="button" id="dateBtn" onclick="DateManipulation()" class="btn btn-default">DateBtn</button>
+						<button type="button" id="dateBtn" onclick="navigate()" class="btn btn-default">DateBtn</button>
+					
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+	<div id="myDiv1">
+		<p id="myP1">Click this paragraph, event Bubbling.</p>
+	</div>
+	<br>
+
+	<div id="myDiv2">
+		<p id="myP2">Click this paragraph, event Capturing.</p>
+	</div>
+
+	<script type="text/javascript">
+
+	 document.getElementById("myP1").style.backgroundColor="red";
+	 document.getElementById("myP2").style.backgroundColor="green";
+
+		//alert(localStorage.getItem("userName","somnath"));
+	
+	function DateManipulation(){
+		 var d1=document.getElementById("txt3Date").value;
+		 if(d1==''){
+             alert("No Valid Date");
+			 }
+		var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+	    	 //alert(d.getMonth()+1);
+	    	//alert(d.getFullYear());
+		      var cd=new Date(d1);
+			//var ly=cd.getFullYear();
+			// alert(cd.getDay());
+	    	 //alert(days[cd.getDay()]);
+	    	// alert(cd.getFullYear())
+			  alert(cd.getDate());
+			   
+				}
+	function cssFunction(){
+		 document.getElementById("pass").style.color = "blue";
+	   // document.getElementById("pass").style.backgroundColor="red";
+		// document.getElementById("pass").style.font="italic bold px arial,serif";
+	     document.getElementById("pass").style.border = "1px solid red";
+	     document.getElementById("passValidate").innerHTML="validation error";
+		 
+		}
+	
+	function bomPage(){
+		window.location.href="bom.html";
+			
+		}
+	 
+	
+
+	    document.getElementById("domBtn").addEventListener("click", dom);
+	    function dom(){
+	    	/*  var d = new Date();
+	    	var days = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+	    	alert(d.getDay());
+	    	 alert(days[d.getDay()]);
+	    	 alert(d.getMonth()+1);
+	    	alert(d.getFullYear());
+		   */    
+		    
+		   var btn = document.createElement("BUTTON");
+		    var t = document.createTextNode("html");       // Create a text node
+		    btn.appendChild(t);
+		    
+		   document.getElementById("myDIV").appendChild(btn);
+		      //document.body.appendChild(btn);
+	    	// document.getElementById("myDIV").removeChild(document.getElementById("reBtn")); 
+			//document.getElementById("newDiv1").removeChild(document.getElementById("name"));
+			}
+
+		function strFunction(){
+			var str = "we are in javascript as we are in ui/ux";
+			var sln = str.length;
+			var idx=str.indexOf("are");
+			//alert("length="+sln);
+			/* alert("first index Of are= "+idx);
+			var lIdx=str.lastIndexOf("are");
+			alert("Last index of are= "+lIdx);
+			var fIndx=str.search("are");
+			alert(fIndx);
+ */
+			/*   var sliceStr=str.slice(3,12);
+			alert("Slice of String is = "+sliceStr);
+			 */ 
+			/*    var sliceStr=str.slice(-30);
+			alert("Slice of String from reverse is = "+sliceStr);
+   */
+			/*  var subSt=str.substr(3,3);
+			alert("substring of string  = "+subSt);
+			 */ 
+			/*   var newStr=str.replace("javascript","java");
+			alert(newStr);
+			 
+			alert(newStr.toUpperCase());
+			alert(newStr.toLowerCase());
+		 */	var s1="hi";
+			var s2="i am";
+			var conStr=s1.concat(s2);
+			alert("concatination = " +conStr);
+			alert(s2.charAt(3));
+			
+			}
+		 function cssHandle(){
+			 //10 then only above two css will be changed
+			 //15 then only font will applied
+			/*  var response = prompt('What is your option name?');
+         	   if(response==10){
+				   document.getElementById("res").style.color = "blue";
+				   document.getElementById("res").style.backgroundColor="red";
+				   }
+			   if(response==15){
+					   document.getElementById("res").style.font="italic bold 20px arial,serif";
+					   } */
+			 
+			 //document.getElementById("res").style.color = "blue";
+		     //document.getElementById("res").style.backgroundColor="red";
+			 //document.getElementById("res").style.font="italic bold 20px arial,serif";
+			  /*  if((ly%2)==0){
+					alert("even year");
+					}else{
+						alert("odd year");
+						} */
+		
+			 }
+			</script>
+
+</body>
+</html>
